@@ -22,8 +22,9 @@ body {
 .envelope {
     content: url(https://assets.codepen.io/4927073/Envelope3.png);
     width: 430px;
+    max-width: 80%;
     position: absolute;
-    left: 18%;
+    left: 10%;
     top: 3%;
     filter: drop-shadow(1.5px 0.75px 1.75px #4d4d4d);
 }
@@ -32,6 +33,8 @@ body {
     position: relative;
     width: 262px;
     height: 372px;
+    max-width: 80%;
+    max-height: 80%;
     margin: auto;
     box-shadow: inset 5px 0px 15px 0px rgba(0, 0, 0, 0.1),
     3px 0px 3px -2px rgba(0, 0, 0, 0.3);
@@ -44,8 +47,6 @@ body {
     position: absolute;
     width: 100%;
     height: 100%;
-    margin: -10px 0px 0px -10px;
-    margin: auto;
     border: 1px solid #e0e0db;
     backface-visibility: hidden;
     background-color: #e8e6e3;
@@ -55,6 +56,7 @@ body {
     transform: perspective(800px) rotateY(0deg);
     transition: all 1s ease-in-out;
     filter: saturate(1.125) brightness(1.0125);
+    overflow: hidden;
 }
 
 .card:hover .front {
@@ -73,8 +75,6 @@ body {
     position: absolute;
     width: 100%;
     height: 100%;
-    margin: -10px 0px 0px -10px;
-    margin: auto;
     backface-visibility: visible;
     filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.25));
     box-shadow: inset 5px 0px 15px 0px rgba(0, 0, 0, 0.1),
@@ -84,6 +84,7 @@ body {
     transform: perspective(800px) rotateY(0deg);
     transition: all 1s ease-in-out;
     background-color: #fff;
+    overflow: hidden;
 }
 
 .back img {
@@ -93,8 +94,8 @@ body {
 }
 
 .text-container {
-    width: 80%;
-    height: 80%;
+    width: 90%;
+    height: 70%;
     margin: auto;
     display: flex;
     justify-content: center;
@@ -102,12 +103,15 @@ body {
     font-family: Roboto;
     color: #929292;
     text-align: center;
+    overflow: hidden;
 }
 
 .message {
     font-family: 'Arial', sans-serif;
     color: #333;
     font-size: 16px;
+    word-wrap: break-word;
+    word-break: break-word;
 }
 
 .f-box {
@@ -117,12 +121,14 @@ body {
     background-color: transparent;
     box-shadow: 0 2px rgba(0, 0, 0, 0.1);
     text-align: center;
+    overflow: hidden;
 }
 
 .f-box img {
-    margin-top: 0px;
     height: 100%;
     width: auto;
+    max-height: 100%;
+    max-width: 100%;
 }
 
 audio {
@@ -157,13 +163,13 @@ audio {
     }
 
     .card {
-        height: 230px;
-        width: 162px;
+        height: auto;
+        width: 80%;
     }
 
     .text-container {
         width: 90%;
-        height: 70%;
+        height: auto;
     }
 
     .message {
@@ -179,13 +185,13 @@ audio {
     }
 
     .card {
-        height: 180px;
-        width: 120px;
+        height: auto;
+        width: 80%;
     }
 
     .text-container {
         width: 90%;
-        height: 60%;
+        height: auto;
     }
 
     .message {
