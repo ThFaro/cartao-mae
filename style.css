@@ -108,7 +108,6 @@ body {
     font-family: 'Arial', sans-serif;
     color: #333;
     font-size: 16px;
-    
 }
 
 .f-box {
@@ -152,11 +151,44 @@ audio {
 
 @media (max-width: 675px) {
     .envelope {
-        width: 380px;
+        width: 80%;
+        left: 10%;
+        top: 5%;
     }
 
     .card {
-        height: 330px;
-        width: 230px;
+        height: 230px;
+        width: 162px;
+    }
+
+    .text-container {
+        width: 90%;
+        height: 70%;
+    }
+
+    .message {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 375px) {
+    .envelope {
+        width: 70%;
+        left: 15%;
+        top: 5%;
+    }
+
+    .card {
+        height: 180px;
+        width: 120px;
+    }
+
+    .text-container {
+        width: 90%;
+        height: 60%;
+    }
+
+    .message {
+        font-size: 12px;
     }
 }
