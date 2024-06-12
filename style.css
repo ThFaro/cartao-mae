@@ -1,77 +1,78 @@
-html,
-body {
-    overflow: hidden;
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+/* Estilos básicos para o corpo e o contêiner */
+html, body {
+    overflow: hidden; /* Esconde barras de rolagem */
+    width: 100%; /* Ocupa toda a largura da tela */
+    height: 100%; /* Ocupa toda a altura da tela */
+    margin: 0; /* Remove margens padrão */
+    padding: 0; /* Remove preenchimentos padrão */
+    display: flex; /* Permite usar flexbox para layout */
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
 }
 
 body {
+    background-image: url(https://assets.codepen.io/4927073/Group2.png), url(https://assets.codepen.io/4927073/Background6.png);
+    background-image: url(https://assets.codepen.io/4927073/Group2.png), linear-gradient(33deg, #edf2f7, #edf2f7);
     background-image: url(https://assets.codepen.io/4927073/Group2.png), linear-gradient(33deg, #fb00a3, #3a2c2c);
-    background-size: cover;
-    background-position: 50% 50%;
+    background-size: cover; /* Cobre todo o fundo */
+    background-position: 50% 50%; /* Centraliza a imagem de fundo */
 }
 
+/* Estilos para o contêiner do envelope e do cartão */
+.container { 
+    display: flex; /* Usa flexbox para layout */
+    flex-direction: column; /* Organiza os elementos em coluna */
+    align-items: center; /* Centraliza os elementos horizontalmente */
+    width: 90vw; /* Largura de 90% da viewport */
+    height: 90vh; /* Altura de 90% da viewport */
+}
+
+/* Estilos para o envelope */
 .envelope {
-    content: url(https://assets.codepen.io/4927073/Envelope3.png);
-    width: 30vw; /* Ajuste para unidades relativas */
-    position: absolute;
-    left: 18%;
-    top: 3%;
-    filter: drop-shadow(1.5px 0.75px 1.75px #4d4d4d);
+    content: url(https://assets.codepen.io/4927073/Envelope3.png); /* Imagem do envelope */
+    width: 80%; /* Largura de 80% do contêiner */
+    margin-bottom: 10%; /* Espaço abaixo do envelope */
+    filter: drop-shadow(1.5px 0.75px 1.75px #4d4d4d); /* Sombra */
 }
 
+/* Estilos para o cartão */
 .card {
-    position: relative;
-    width: 60vw; /* Ajuste para unidades relativas */
-    height: 80vh; /* Ajuste para unidades relativas */
+    position: relative; /* Permite posicionar elementos dentro */
+    width: 80%;
+    max-width: 350px; /* Largura máxima em telas maiores */
+    height: auto; /* Altura se ajusta ao conteúdo */
     margin: auto;
-    box-shadow: inset 5px 0px 15px 0px rgba(0, 0, 0, 0.1), 3px 0px 3px -2px rgba(0, 0, 0, 0.3);
-    background-color: #fffffa;
-    transform: scale(1.05);
-    left: 12px;
+    box-shadow: inset 5px 0px 15px 0px rgba(0, 0, 0, 0.1), 3px 0px 3px -2px rgba(0, 0, 0, 0.3); /* Sombras */
+    background-color: #fffffa; /* Cor de fundo */
+    transform: scale(1.05); /* Aumenta um pouco o tamanho */
+    left: 12px; /* Deslocamento para a esquerda */
+    transform-style: preserve-3d; /* Preserva o estilo 3D para a animação */
+    perspective: 1000px; /* Perspectiva para a animação 3D */
 }
 
-.front {
+/* Estilos para as faces do cartão */
+.front, .back {
     position: absolute;
     width: 100%;
     height: 100%;
-    margin: 0;
-    border: 1px solid #e0e0db;
-    backface-visibility: hidden;
-    background-color: #e8e6e3;
-    background-size: contain;
-    transform-style: preserve-3d;
-    transform-origin: 0% 50%;
-    transform: perspective(800px) rotateY(0deg);
-    transition: all 1s ease-in-out;
-    filter: saturate(1.125) brightness(1.0125);
+    backface-visibility: hidden; /* Esconde a face oposta */
+    transition: transform 0.8s ease-in-out; /* Transição suave para a animação */
 }
 
+/* Animação de virar o cartão ao passar o mouse (opcional) */
 .card:hover .front {
-    transform: perspective(800px) rotateY(-170deg);
-    background-color: rgb(205, 205, 205);
+    transform: rotateY(180deg); /* Vira a frente */
 }
 
 .card:hover .back {
-    transform: perspective(800px) rotateY(-170deg);
-    box-shadow: 7px 0px 2px 0px rgba(0, 0, 0, 0.3), inset 2px 0px 15px 0px rgba(0, 0, 0, 0.1);
-    background-color: #fffffa;
+    transform: rotateY(0deg); /* Mostra a parte de trás */
 }
 
+/* Estilos para o verso do cartão */
 .back {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    backface-visibility: visible;
     filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.25));
-    box-shadow: inset 5px 0px 15px 0px rgba(0, 0, 0, 0.1), 3px 0px 3px 1px rgba(0, 0, 0, 0.3);
+    box-shadow: inset 5px 0px 15px 0px rgba(0, 0, 0, 0.1),
+    3px 0px 3px 1px rgba(0, 0, 0, 0.3);
     transform-style: preserve-3d;
     transform-origin: 0% 50%;
     transform: perspective(800px) rotateY(0deg);
@@ -82,9 +83,26 @@ body {
 .back img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: cover; /* Ajusta a imagem para cobrir todo o verso */
+}
+/* Estilos para o conteúdo da frente do cartão */
+.f-box {
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    background-color: transparent;
+    box-shadow: 0 2px rgba(0, 0, 0, 0.1);
+    text-align: center;
 }
 
+.f-box img {
+    margin-top: 0px;
+    height: 100%;
+    width: auto;
+}
+
+
+/* Estilos para a mensagem de texto */
 .text-container {
     width: 80%;
     height: 80%;
@@ -100,41 +118,28 @@ body {
 .message {
     font-family: 'Arial', sans-serif;
     color: #333;
-    font-size: 3.5vw; /* Ajuste para unidades relativas */
+    font-size: 16px;
 }
 
-.f-box {
-    width: 100%;
-    height: 100%;
-    margin: auto;
-    background-color: transparent;
-    box-shadow: 0 2px rgba(0, 0, 0, 0.1);
-    text-align: center;
-}
-
-.f-box img {
-    margin-top: 0;
-    height: 100%;
-    width: auto;
-}
-
+/* Estilos para o player de áudio */
 audio {
-    position: fixed;
-    bottom: 5px;
-    width: 20%;
+    width: 80%;
+    max-width: 300px; /* Largura máxima em telas maiores */
+    margin-top: 20px; /* Espaço acima do player */
 }
 
-@media (max-width: 675px) {
+/* Estilos para telas menores (ex: celulares) */
+@media (max-width: 480px) {
     .envelope {
-        width: 50vw; /* Ajuste para unidades relativas */
+        width: 90%; /* Largura maior em telas menores */
+        margin-bottom: 5%; /* Espaço menor abaixo do envelope */
     }
 
     .card {
-        width: 90vw; /* Ajuste para unidades relativas */
-        height: auto; /* Ajuste para unidades relativas */
+        width: 95%; /* Largura maior em telas menores */
     }
 
     .message {
-        font-size: 4.5vw; /* Ajuste para unidades relativas */
+        font-size: 14px; /* Fonte menor em telas menores */
     }
 }
