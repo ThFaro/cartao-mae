@@ -1,44 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
-  <title>Document</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
 </head>
+
 <body>
-  <div class="envelope"></div>
-  
-  <div class="card">
-    <div class="pages">
-      <div class="page front">
-        <div class="f-box">
-          <img src="https://assets.codepen.io/4927073/ValCard.png" alt="">
+    <div class="envelope"></div>
+
+    <div class="card">
+        <div class="back">
+            <img src="img/familia.jpg" alt="Contracapa">
         </div>
-      </div>
-      <div class="page">
+        <div class="front">
+            <div class="f-box">
+                <img src="img/Mãe....png" alt="">
+            </div>
+        </div>
+
         <div class="text-container">
-          <p>Happy Valentine's Day!!!</p>
+            <p class="message">
+                <strong>Para a minha querida mãe,</strong> <br><br>
+                Parabéns pelo seu dia! Você é uma mulher forte, uma guerreira, e o verdadeiro pilar de nossa família. <br><br>
+                Sua coragem e dedicação nos inspiram todos os dias. Obrigado por todo o amor e apoio incondicional.<br><br>
+                Com todo o meu amor,<br>
+                Seu filho &hearts;
+            </p>
         </div>
-      </div>
-      <div class="page">
-        <div class="f-box">
-          <img src="https://via.placeholder.com/150" alt="">
-        </div>
-      </div>
-      <div class="page">
-        <div class="text-container">
-          <p>Another Page with text</p>
-        </div>
-      </div>
     </div>
-  </div>
-  
-  <div class="navigation">
-    <button id="prev">Voltar</button>
-    <button id="next">Avançar</button>
-  </div>
-  
-  <script src="script.js"></script>
+
+    <audio id="audio" src="audio/audio.mp3" autoplay></audio>
+
+    <script src="script.js"></script>
 </body>
+
 </html>

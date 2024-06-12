@@ -1,130 +1,144 @@
 html,
 body {
-  overflow: hidden;
-  width: 100%;
-  height: 100%;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 body {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-image: url(https://assets.codepen.io/4927073/Group2.png), url(https://assets.codepen.io/4927073/Background6.png);
-  background-image: url(https://assets.codepen.io/4927073/Group2.png), linear-gradient(33deg, #edf2f7, #edf2f7);
-  background-image: url(https://assets.codepen.io/4927073/Group2.png),  linear-gradient(33deg, #ea0062, #2c303a);
-  background-size: cover;
-  background-position: 50% 50%;
+    background-image: url(https://assets.codepen.io/4927073/Group2.png), url(https://assets.codepen.io/4927073/Background6.png);
+    background-image: url(https://assets.codepen.io/4927073/Group2.png), linear-gradient(33deg, #edf2f7, #edf2f7);
+    background-image: url(https://assets.codepen.io/4927073/Group2.png), linear-gradient(33deg, #fb00a3, #3a2c2c);
+    background-size: cover;
+    background-position: 50% 50%;
 }
 
 .envelope {
-  content: url(https://assets.codepen.io/4927073/Envelope3.png);
-  width: 430px;
-  position: absolute;
-  left: 18%;
-  top: 3%;
-  filter: drop-shadow(1.5px 0.75px 1.75px #4d4d4d);
+    content: url(https://assets.codepen.io/4927073/Envelope3.png);
+    width: 430px;
+    position: absolute;
+    left: 18%;
+    top: 3%;
+    filter: drop-shadow(1.5px 0.75px 1.75px #4d4d4d);
 }
 
 .card {
-  position: relative;
-  width: 262px;
-  height: 372px;
-  margin: auto;
-  box-shadow: inset 5px 0px 15px 0px rgba(0, 0, 0, 0.1),
+    position: relative;
+    width: 262px;
+    height: 372px;
+    margin: auto;
+    box-shadow: inset 5px 0px 15px 0px rgba(0, 0, 0, 0.1),
     3px 0px 3px -2px rgba(0, 0, 0, 0.3);
-  background-color: #fffffa;
-  transform: scale(1.05);
-  left: 12px;
-  overflow: hidden;
-  perspective: 1000px;
+    background-color: #fffffa;
+    transform: scale(1.05);
+    left: 12px;
 }
 
-.pages {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  transform-style: preserve-3d;
-  transition: transform 1s;
+.front {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    margin: -10px 0px 0px -10px;
+    margin: auto;
+    border: 1px solid #e0e0db;
+    backface-visibility: hidden;
+    background-color: #e8e6e3;
+    background-size: contain;
+    transform-style: preserve-3d;
+    transform-origin: 0% 50%;
+    transform: perspective(800px) rotateY(0deg);
+    transition: all 1s ease-in-out;
+    filter: saturate(1.125) brightness(1.0125);
 }
 
-.page {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  backface-visibility: hidden;
+.card:hover .front {
+    transform: perspective(800px) rotateY(-170deg);
+    background-color: rgb(205, 205, 205);
 }
 
-.page.front {
-  background-color: #e8e6e3;
-  transform: rotateY(0deg);
+.card:hover .back {
+    transform: perspective(800px) rotateY(-170deg);
+    box-shadow: 7px 0px 2px 0px rgba(0, 0, 0, 0.3),
+    inset 2px 0px 15px 0px rgba(0, 0, 0, 0.1);
+    background-color: #fffffa;
 }
 
-.page:nth-child(2) {
-  transform: rotateY(180deg);
-  background-color: #fff;
+.back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    margin: -10px 0px 0px -10px;
+    margin: auto;
+    backface-visibility: visible;
+    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.25));
+    box-shadow: inset 5px 0px 15px 0px rgba(0, 0, 0, 0.1),
+    3px 0px 3px 1px rgba(0, 0, 0, 0.3);
+    transform-style: preserve-3d;
+    transform-origin: 0% 50%;
+    transform: perspective(800px) rotateY(0deg);
+    transition: all 1s ease-in-out;
+    background-color: #fff;
 }
 
-.page:nth-child(3) {
-  transform: rotateY(360deg);
-  background-color: #fff;
-}
-
-.page:nth-child(4) {
-  transform: rotateY(540deg);
-  background-color: #fff;
+.back img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .text-container {
-  width: 80%;
-  height: 80%;
-  margin: auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-family: Roboto;
-  color: #929292;
+    width: 80%;
+    height: 80%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Roboto;
+    color: #929292;
+    text-align: center;
+}
+
+.message {
+    font-family: 'Arial', sans-serif;
+    color: #333;
+    font-size: 16px;
+    
 }
 
 .f-box {
-  width: 100%;
-  height: 100%;
-  margin: auto;
-  background-color: transparent;
-  box-shadow: 0 2px rgba(0, 0, 0, 0.1);
-  text-align: center;
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    background-color: transparent;
+    box-shadow: 0 2px rgba(0, 0, 0, 0.1);
+    text-align: center;
 }
 
 .f-box img {
-  margin-top: 0px;
-  height: 100%;
-  width: auto;
+    margin-top: 0px;
+    height: 100%;
+    width: auto;
 }
 
-.navigation {
-  margin-top: 20px;
-}
-
-button {
-  padding: 10px 20px;
-  margin: 0 10px;
-  background-color: #2c303a;
-  color: #fff;
-  border: none;
-  cursor: pointer;
-}
-
-button:focus {
-  outline: none;
+audio {
+    position: fixed;
+    bottom: 10px;
+    width: 100%;
 }
 
 @media (max-width: 675px) {
-  .envelope {
-    width: 380px;
-  }
-  
-  .card {
-    height: 330px;
-    width: 230px;
-  }
+    .envelope {
+        width: 380px;
+    }
+
+    .card {
+        height: 330px;
+        width: 230px;
+    }
 }
